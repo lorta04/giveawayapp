@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import { Table } from 'reactstrap';
+import { decode } from 'jsonwebtoken';
 
-class Example extends Component {
+class MyQueue extends Component {
     constructor(props){
       super(props)
       this.state = {
@@ -10,8 +11,9 @@ class Example extends Component {
       }
     }
     componentDidMount(){
-      const gw_name = this.props.data
-      const url = 'http://localhost:5000/queue/giveaway/'+gw_name
+      const token = localStorage.getItem('token')
+      const user = decode(token,'secret').username
+      const url = 'http://localhost:5000/queue/user/'+user
       axios.get(url).then((res)=>{
         console.log(res.data)
         this.setState({data:res.data})
@@ -27,7 +29,7 @@ class Example extends Component {
         <tr>
           <th>#</th>
           <th>รหัสการจอง</th>
-          <th>ชื่อผู้ใช้</th>
+          <th>Giveaway</th>
           <th>สถานะการรับของ</th>
         </tr>
       </thead>
@@ -36,7 +38,7 @@ class Example extends Component {
           <tr>
           <th>#</th>
           <th>{item.queue_code}</th>
-          <th>{item.queue_user}</th>
+          <th>{item.queue_giveawayName}</th>
           <th>{item.queue_isreceived}</th>
         </tr>)
         })}
@@ -48,4 +50,4 @@ class Example extends Component {
 }
 }
 
-export default Example;
+export default MyQueue;

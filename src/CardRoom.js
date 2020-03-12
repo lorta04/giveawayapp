@@ -14,7 +14,7 @@ const Roomcard = (props) => {
   */
  
   return(
-  <div><ul>
+  <div><ul style = {{padding : '0px'}}>
     {roomdata.map((room)=>{
       const url = '/room/'+room.roomname
       return (<li>

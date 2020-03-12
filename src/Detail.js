@@ -31,7 +31,7 @@ class Detail extends Component {
                 <li><ListGroupItem>แจกโดย : {datagw.giveaway_givername}</ListGroupItem></li>
 
                 <li><ListGroupItem>สถานที่ : {datagw.giveaway_place}</ListGroupItem></li>
-                <li><ListGroupItem>วันเวลา : {datagw.giveaway_date}</ListGroupItem></li>
+                <li><ListGroupItem>วันเวลา : {datagw.giveaway_date+' '+datagw.giveaway_time}</ListGroupItem></li>
                 <li><ListGroupItem>จำนวนของที่เหลือ : <Badge pill>{datagw.giveaway_amount}</Badge></ListGroupItem></li>
 
                 
@@ -51,10 +51,7 @@ class Detail extends Component {
                 </ul>
             </ListGroup>
           </div>
-
-          
-          
-          
+                         
           </div>
           <div style = {{display: 'flex',  justifyContent:'center', alignItems:'center', backgroundColor: 'rgb(169, 226, 236)'}}className="App__Form">
                 <img src = {datagw.giveaway_pic} style = {{width:"300px"}}></img>

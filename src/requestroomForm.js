@@ -49,17 +49,17 @@ class requestroomForm extends Component {
             <Label className = 'lebel' for="exImg">แนบไฟล์รูปแบนเนอร์/สมาชิกวงทั้งหมด (Zip)</Label><br/>
             {/*<input type="file" name="file" id="exImg" onChange={this.onChangeHandler}/>
             */}
-              <div class="row">
-                <div class="col-md-6">
+              <div className="row">
+                <div className="col-md-6">
                   <form method="post" action="#" id="#">                                            
-                    <div class="form-group files">
-                      <input type="file" class="form-control" multiple="" onChange={this.onChangeHandler}/>
+                    <div className="form-group files">
+                      <input type="file" className="form-control" multiple="" onChange={this.onChangeHandler}/>
                     </div>
                   </form>
                 </div>
               </div>
           </FormGroup>
-          <button type="button" class="btn btn-success btn-block button" onClick={this.onClickHandler}>Submit</button> 
+          <button type="button" className="btn btn-success btn-block button" onClick={this.onClickHandler}>Submit</button> 
         </Form>
       </div>    
     );

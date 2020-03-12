@@ -5,7 +5,7 @@ router.route('/').get((req, res) => {
   Giveaway.find()
     .then(giveaways => res.json(giveaways))
     .catch(err => res.status(400).json('Error: ' + err));
-    console.log('dd')
+    //console.log('dd')
 
 });
 
@@ -17,7 +17,7 @@ router.route('/add').post((req, res) => {
 
   //
   const giveaway = req.body
-    console.log(req.body);
+    //console.log(req.body);
   const newGW = new Giveaway(giveaway);
   
   newGW.save()
@@ -30,7 +30,7 @@ router.route('/:username').get((req,res)=>{
   const username = req.params.username
   Giveaway.find({giveaway_givername:username},(err,res)=>{
     if(err) throw err
-    console.log(res)
+    //console.log(res)
   }).then(giveaway => {res.json(giveaway)})
 })
 
@@ -53,15 +53,15 @@ router.route('/managestatus').put((req,res)=>{
 router.route('/addstatus').put((req,res)=>{
   console.log('add status')
   const {giveawayname,status} = req.body
-  console.log(giveawayname,status)
+  //console.log(giveawayname,status)
   Giveaway.find({giveawayname:giveawayname},(err,res)=>{
     let data = res[0]
     let announce_array = data.giveaway_userannounce
-    console.log(announce_array)
+    //console.log(announce_array)
     announce_array.push(status)
-    console.log(announce_array)
+    //console.log(announce_array)
     Giveaway.update({giveawayname:giveawayname},{giveaway_userannounce:announce_array},(err,doc,res)=>{
-      console.log(err,doc,res)
+      //console.log(err,doc,res)
     })
   })
   res.end()

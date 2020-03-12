@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const GWSchema = new Schema({
   giveawayname: {
-    type: Intl,
+    type: String,
     required: true,
     unique: true,
     trim: true,
@@ -14,8 +14,10 @@ const GWSchema = new Schema({
   giveaway_givername: String,
   giveaway_status: Number,
   giveaway_place: String,
+  giveaway_detail: String,
   giveaway_amount: Intl,
-  giveaway_date: Date,
+  giveaway_date: String,
+  giveaway_time: String,
   giveaway_pic: String,
   giveaway_userannounce: Array
 });

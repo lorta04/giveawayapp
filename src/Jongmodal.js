@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {decode} from 'jsonwebtoken';
+import Axios from 'axios';
 
 const ModalExample = (props) => {
   const {
@@ -13,6 +15,29 @@ const ModalExample = (props) => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+
+  const Jongclick = () => {
+    console.log('confirm')
+    const token = localStorage.getItem('token')
+    if(token){
+    const inp = {
+      username: decode(token,'secret').username,
+      giveawayname: dataitem.giveawayname
+    }
+    console.log(inp)
+    Axios.post('http://localhost:5000/queue/add',inp)
+    .then((res)=>{
+      console.log(res.data)
+      if(res.data.error){
+        alert(res.data.error);
+      }else{
+        window.location.reload(true)
+      }
+    })
+  }else{
+    alert('Error to queue ... Please login or register')
+  }
+  }
   
   if(dataitem.giveaway_status==1){
   return (
@@ -25,7 +50,7 @@ const ModalExample = (props) => {
           Please Confirm
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>Confirm</Button>{' '}
+          <Button color="primary" onClick={Jongclick}>Confirm</Button>{' '}
           <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>

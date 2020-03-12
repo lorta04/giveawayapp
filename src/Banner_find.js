@@ -15,9 +15,6 @@ export const banner_find = [
         room_member: [require("./img/x1icon/hsw.png"),require("./img/x1icon/csy.png"),require("./img/x1icon/kws.png")
         ,require('./img/x1icon/kyh.png'),require("./img/x1icon/lhg.png"),require("./img/x1icon/cjh.png"),require("./img/x1icon/sdp.png"),require("./img/x1icon/kmh.png")
         ,require('./img/x1icon/les.png'),require("./img/x1icon/shj.png"),require('./img/x1icon/ndh.png')]
-    },
-    {
-        roomname: 'not found'
     }
 ];
 

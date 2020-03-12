@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import{connect} from 'react-redux';
 import {decode} from 'jsonwebtoken';
 import {Button,Row,Col,Container} from 'reactstrap';
-
+import { Nav, NavItem, NavLink } from 'reactstrap';
 class UserStatus extends Component {
     constructor(props){
         super(props)
@@ -19,7 +19,7 @@ class UserStatus extends Component {
             return(<div style={{paddingLeft:"80px"}}>
             <Container>
                 <Row>
-                    <Col xl = {1.9} style={{marginRight:'10px'}}>Welcome, Guest ... please login</Col>
+                    <Col xl = {1.9} style={{marginRight:'10px', display: 'flex'}}>Welcome, Guest ... please login or<NavLink href="/register" style = {{padding : '0px', paddingLeft : '4px'}}> Register</NavLink></Col>
                     
                 </Row>
             </Container>

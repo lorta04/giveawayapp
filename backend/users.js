@@ -8,14 +8,14 @@ router.route('/').get((req, res) => {
   User.find()
     .then(users => res.json(users))
     .catch(err => res.status(400).json('Error: ' + err));
-    console.log('dd')
+    //console.log('dd')
   
 
 });
 
 router.route('/add').post((req, res) => {
   const user = req.body;
-  console.log(user)
+  //console.log(user)
   const newUser = new User(user);
   
   newUser.save()
@@ -25,17 +25,17 @@ router.route('/add').post((req, res) => {
 
 router.route('/login').post((req,res) => {
     const {user,passwd} = req.body
-    console.log(req.body)
+    //console.log(req.body)
         User.find({'username':{$eq:user}}).then((data)=>{
-      console.log(data)
+      //console.log(data)
       if(data.length<1) return res.send({user:"usernotfound"})
       else {
         data = data[0]
-        console.log(data._doc.password,passwd)
+        //console.log(data._doc.password,passwd)
         if(data._doc.password && data._doc.password === passwd) {
         const datapack = {username:data.username,twittername:data.twittername}
         const dd = jwt.sign(datapack,'secret')
-        console.log(dd)
+        //console.log(dd)
         res.status(200).send(dd)
         }else {
           res.send({user:"incorrectpass"});

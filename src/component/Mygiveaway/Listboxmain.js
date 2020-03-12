@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import MyGW from './DisplayList'
+import MyQueue from './Myqueue'
 const Example = (props) => {
   const [activeTab, setActiveTab] = useState('1');
 
@@ -39,7 +40,7 @@ const Example = (props) => {
         </TabPane>
         <TabPane tabId="2">
           <Row>
-            
+            <MyQueue/>
           </Row>
         </TabPane>
       </TabContent>

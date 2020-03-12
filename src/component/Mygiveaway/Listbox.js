@@ -40,9 +40,9 @@ class Listbox extends Component {
                       console.log(datetime)
                       const data = {giveawayname:this.props.data.giveawayname, status:{date:format(datetime,"d/MM/yyyy HH:mm"),detail:this.state.detail}}
                       axios.put('http://localhost:5000/giveaway/addstatus',data).then()
-              
+                      alert('add status complete')
                       //this.setState({modal : !this.state.modal});
-                      //window.location.reload(true);
+                      window.location.reload(true);
                     }
 
   onChangeText = changeEvent => this.setState({ [changeEvent.target.name] : changeEvent.target.value });
@@ -52,9 +52,9 @@ class Listbox extends Component {
     return (
       <div className="List justify-content-center card card-block">
 
-        <ul class="list-group list-group-flush">
+        <ul className="list-group list-group-flush">
             
-          <li class="list-group-item">
+          <li className="list-group-item">
           <CardBody>
             <Container>
               <Row>
@@ -77,7 +77,7 @@ class Listbox extends Component {
           </CardBody>
           </li>
 
-          <li class="list-group-item">
+          <li className="list-group-item">
           <Button onClick={this.toggle} className = "btn btn-dark ListButton">Reciever List</Button>
           
           <Button className = "btn btn-info Addstatus"  onClick={this.toggle2}>Add Status</Button>

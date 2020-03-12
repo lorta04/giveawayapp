@@ -9,6 +9,8 @@ import * as serviceWorker from './serviceWorker';
 import Registerform from './register'
 import Room from './Room'
 import Detail from './Detail'
+import Contact from './Contact'
+import Requestroom from './requestroomForm'
 
 import {Provider} from 'react-redux';
 import {createStore,applyMiddleware} from 'redux';
@@ -34,6 +36,10 @@ const Routing = () =>{
                 <Route exact path = "/register" component = {Registerform}/>
 
                 <Route exact path = "/toolbox" component = {Toolbox}/> 
+
+                <Route exact path = "/contact" component = {Contact}/> 
+
+                <Route exact path = "/requestroom" component = {Requestroom}/> 
         </BrowserRouter>
         
     );

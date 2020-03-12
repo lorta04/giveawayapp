@@ -1,11 +1,13 @@
 import React , {useState} from 'react';
 import './Toolbar.css'
+import {Link} from 'react-router-dom'
 import LoginModal from '../Modal/LoginModal'
 import StatusModal from '../Modal/StatusModal'
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 import {connect} from 'react-redux'
 import { tsPropertySignature } from '@babel/types';
 import {verify} from 'jsonwebtoken';
+import { domainToASCII } from 'url';
 
 const toolbar = props =>  {  
     console.log(props)
@@ -20,7 +22,7 @@ const toolbar = props =>  {
         <div className= "spacer" />
         <div className="toolbar_navigation-items">
             <ul>
-                <li><button className = "btn btn-link"> Contact </button></li>
+                <li><Link to ='/contact'><button className = "btn btn-link"> Contact </button></Link></li>
                 <li>
                      <MenuBar token = {props.token} />
                 </li>

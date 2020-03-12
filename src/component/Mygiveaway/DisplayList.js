@@ -16,6 +16,7 @@ class MyGiveawayList extends Component {
             console.log(res.data)
             this.setState({dataset:res.data})
         })
+
     }
     constructor() {
         super();

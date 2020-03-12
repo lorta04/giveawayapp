@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-
+const queue = require('./queue');
 require('dotenv').config();
 
 const app = express();
@@ -23,6 +23,7 @@ app.use(express.json());
 
 app.use('/user',Users);
 app.use('/giveaway', giveaway);
+app.use('/queue', queue);
 
 const uri = process.env.ATLAS_URI;
 //console.log(uri)

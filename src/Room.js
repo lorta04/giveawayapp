@@ -12,6 +12,7 @@ import Picshow from "./picshow";
 import Roomcard from "./CardRoom"
 import Slide from './Slide'
 import {banner_find} from './Banner_find'
+import UserStatus from "./component/Userstatus/UserStatus"
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 //import ModalB from './component/Modal/Modal2'
@@ -49,7 +50,7 @@ class Room extends Component{
     if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClickHandler} />
     }
-    //const img1 = './img/nubanner.jpg'
+  const bannermain = require('./img/Bannermain.png')
   console.log(this.state.roomdata)
   return (
     
@@ -60,9 +61,10 @@ class Room extends Component{
       
       <main >
         <div className = 'hellofrom'>
-        <ul>
-        <li><Slide /></li>
-        <li><Roomcard roomdata = {this.state.roomdata}/></li>
+        <ul style = {{padding : '0px'}}>
+        <li><img src={bannermain} style={{width : '1500px'}}></img></li>
+        <li><UserStatus /></li>
+        <li ><Roomcard roomdata = {this.state.roomdata}/></li>
         </ul>
         </div>
       </main>
